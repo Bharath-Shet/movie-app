@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
 import {createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
 
 import './index.css';
 
@@ -41,19 +42,56 @@ console.log('Store',store)
 
 // console.log('AFTER STATE', store.getState());
 
-export const StoreContext = createContext();
-console.log("StoreContext", StoreContext)
+// export const StoreContext = createContext();
+// console.log("StoreContext", StoreContext)
 
 
-class Provider extends React.Component{
-  render(){
-    const {store} = this.props;
-    return <StoreContext.Provider value={store}>
-      {this.props.children}
-    </StoreContext.Provider>
-  }
-}
+// class Provider extends React.Component{
+//   render(){
+//     const {store} = this.props;
+//     return <StoreContext.Provider value={store}>
+//       {this.props.children}
+//     </StoreContext.Provider>
+//   }
+// }
 
+// const connectedAppComponent = connect(callback)(App)
+
+// export function connect(callback){
+//   return function(Component){
+//     class ConnectedComponent extends React.Component{
+//       constructor(props){
+//         super(props);
+//         this.unsubscribe = store.subscribe(() => {
+//         this.forceUpdate();
+//         })
+//       }
+
+//       componentWillUnmount() {
+//         this.unsubscribe();
+//       }
+//       render(){
+//         const {store} = this.props
+//         const state = store.getState();
+//         const DataToBePassedAsProps = callback(state);
+//         return(
+//           <Component {...DataToBePassedAsProps} dispatch={store.dispatch}/>
+//         )
+//       }
+//     }
+//     class ConnectedComponentWrapper extends React.Component{
+//       render(){
+//         return (
+//         <StoreContext.Consumer>
+//           {(store) => <ConnectedComponent store={store}/>}
+//         </StoreContext.Consumer>
+//         )
+//       }
+
+//     }
+//     return ConnectedComponentWrapper;
+//   }
+// }
 ReactDOM.render(
   <Provider store={store}>
     <App />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {addFavourite, removeFromFavourite} from '../actions';
 
-export default class MovieCard extends Component {
+class MovieCard extends Component {
  
     handleFavouriteClick = () => {
         const {movie} = this.props;
@@ -40,3 +40,4 @@ export default class MovieCard extends Component {
         )
     }
 }
+export default MovieCard;
